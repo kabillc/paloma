@@ -1,6 +1,10 @@
 Changelog
 =
 
+Version 2.0.7
+-
+* Bug Fix: Backport hook partial rendering fix from [kbparagua/paloma#55](https://github.com/kbparagua/paloma/pull/55)
+
 Version 2.0.6
 -
 * Pull #15: Handling flash on redirect.

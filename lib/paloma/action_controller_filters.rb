@@ -22,10 +22,14 @@ module Paloma
 
       add_to_callbacks @__paloma_callback__
 
-      paloma_txt = view_context.render(
-        :partial => "paloma/callback_hook",
-        :locals => {:callbacks => session[:callbacks]})
-      
+      begin
+        paloma_txt = view_context.render(
+          :partial => "paloma/callback_hook",
+          :locals => {:callbacks => session[:callbacks]})
+      rescue ActionView::MissingTemplate
+        return true
+      end
+
       before_body_end_index = response_body[0].rindex('</body>')
       
       if before_body_end_index.present?
